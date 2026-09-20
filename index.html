@@ -1,0 +1,1120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PosterBaba — Premium Poster & Design Marketplace</title>
+<meta name="description" content="PosterBaba - Premium PLP, PSD, PNG, JPG and editable poster marketplace.">
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+:root{
+  --primary:#6c2cff;
+  --secondary:#ff3d81;
+  --blue:#1473ff;
+  --dark:#111326;
+  --text:#24243a;
+  --muted:#74748b;
+  --white:#fff;
+  --bg:#f6f7fb;
+  --border:#e8e8f1;
+  --green:#13b86b;
+  --shadow:0 15px 45px rgba(40,30,100,.12);
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+button,input,select{
+  font-family:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+/* HEADER */
+header{
+  position:sticky;
+  top:0;
+  z-index:1000;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(15px);
+  border-bottom:1px solid var(--border);
+}
+
+.nav{
+  max-width:1200px;
+  margin:auto;
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 18px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:24px;
+  font-weight:900;
+  color:var(--dark);
+}
+
+.logoIcon{
+  width:43px;
+  height:43px;
+  border-radius:13px;
+  display:grid;
+  place-items:center;
+  color:white;
+  font-size:22px;
+  background:linear-gradient(135deg,#6c2cff,#ff3d81);
+  box-shadow:0 8px 22px rgba(108,44,255,.3);
+}
+
+.logo span{
+  background:linear-gradient(90deg,#6428ff,#ff2675);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.navBtns{
+  display:flex;
+  gap:9px;
+}
+
+.navBtn{
+  border:0;
+  background:#f1f1f8;
+  padding:10px 14px;
+  border-radius:12px;
+  font-weight:700;
+}
+
+.navBtn:hover{
+  background:#e7e4ff;
+}
+
+/* HERO */
+.hero{
+  max-width:1200px;
+  margin:25px auto 0;
+  padding:65px 25px;
+  border-radius:30px;
+  overflow:hidden;
+  position:relative;
+  color:white;
+  background:
+  radial-gradient(circle at 10% 20%,rgba(255,255,255,.22),transparent 25%),
+  radial-gradient(circle at 90% 10%,rgba(255,255,255,.18),transparent 25%),
+  linear-gradient(135deg,#3515a5,#6c2cff 45%,#ff287b);
+  box-shadow:var(--shadow);
+}
+
+.hero:after{
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  right:-100px;
+  bottom:-160px;
+  background:rgba(255,255,255,.12);
+}
+
+.heroContent{
+  max-width:720px;
+  position:relative;
+  z-index:2;
+}
+
+.badge{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:50px;
+  background:rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.25);
+  margin-bottom:18px;
+  font-weight:700;
+  font-size:13px;
+}
+
+.hero h1{
+  font-size:clamp(36px,6vw,65px);
+  line-height:1.02;
+  margin-bottom:18px;
+}
+
+.hero p{
+  font-size:18px;
+  line-height:1.6;
+  opacity:.92;
+}
+
+.searchBox{
+  margin-top:30px;
+  max-width:620px;
+  background:white;
+  padding:7px;
+  border-radius:17px;
+  display:flex;
+  box-shadow:0 12px 35px rgba(0,0,0,.2);
+}
+
+.searchBox input{
+  border:0;
+  outline:0;
+  flex:1;
+  padding:14px;
+  font-size:16px;
+  min-width:0;
+}
+
+.searchBox button{
+  border:0;
+  border-radius:12px;
+  padding:0 22px;
+  color:white;
+  font-weight:800;
+  background:var(--dark);
+}
+
+/* CATEGORY */
+.section{
+  max-width:1200px;
+  margin:45px auto;
+  padding:0 18px;
+}
+
+.sectionHead{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:20px;
+  gap:15px;
+}
+
+.sectionHead h2{
+  font-size:28px;
+}
+
+.sectionHead p{
+  color:var(--muted);
+  margin-top:5px;
+}
+
+.categories{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding-bottom:8px;
+}
+
+.category{
+  white-space:nowrap;
+  padding:12px 18px;
+  border:1px solid var(--border);
+  background:white;
+  border-radius:50px;
+  font-weight:700;
+  box-shadow:0 5px 15px rgba(0,0,0,.04);
+}
+
+.category.active,
+.category:hover{
+  color:white;
+  background:linear-gradient(90deg,#6c2cff,#ff3d81);
+}
+
+/* PRODUCTS */
+.products{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.card{
+  background:white;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid var(--border);
+  box-shadow:0 8px 25px rgba(30,20,80,.06);
+  transition:.25s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow);
+}
+
+.posterImage{
+  height:280px;
+  background:#eee;
+  position:relative;
+  overflow:hidden;
+}
+
+.posterImage img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.tag{
+  position:absolute;
+  left:12px;
+  top:12px;
+  color:white;
+  padding:6px 10px;
+  border-radius:8px;
+  font-size:12px;
+  font-weight:800;
+  background:#111;
+}
+
+.free{
+  background:var(--green);
+}
+
+.cardBody{
+  padding:16px;
+}
+
+.cardTitle{
+  font-weight:800;
+  font-size:17px;
+  margin-bottom:7px;
+}
+
+.fileInfo{
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+.cardBottom{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.price{
+  font-size:20px;
+  font-weight:900;
+}
+
+.buyBtn{
+  border:0;
+  color:white;
+  padding:10px 15px;
+  border-radius:10px;
+  font-weight:800;
+  background:linear-gradient(90deg,#6428ff,#ff2675);
+}
+
+/* ADMIN */
+.admin{
+  max-width:1200px;
+  margin:50px auto;
+  padding:0 18px;
+}
+
+.adminPanel{
+  background:white;
+  border-radius:24px;
+  padding:25px;
+  border:1px solid var(--border);
+  box-shadow:var(--shadow);
+}
+
+.adminTitle{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:22px;
+}
+
+.formGrid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+}
+
+.field label{
+  font-size:13px;
+  font-weight:800;
+}
+
+.field input,
+.field select{
+  width:100%;
+  padding:13px;
+  border:1px solid #ddddeb;
+  border-radius:11px;
+  outline:none;
+  background:#fafaff;
+}
+
+.field input:focus,
+.field select:focus{
+  border-color:var(--primary);
+}
+
+.full{
+  grid-column:1/-1;
+}
+
+.uploadBox{
+  border:2px dashed #cfc9ff;
+  background:#faf9ff;
+  padding:25px;
+  text-align:center;
+  border-radius:15px;
+}
+
+.uploadBox input{
+  margin-top:12px;
+}
+
+.mainAction{
+  border:0;
+  color:white;
+  padding:14px 22px;
+  border-radius:12px;
+  font-weight:900;
+  background:linear-gradient(90deg,#6428ff,#ff2675);
+}
+
+/* UPI */
+.upiBox{
+  margin-top:25px;
+  padding:20px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#f2edff,#fff0f6);
+}
+
+.qrPreview{
+  max-width:220px;
+  max-height:220px;
+  display:none;
+  margin:15px auto;
+  border-radius:15px;
+  box-shadow:0 8px 25px rgba(0,0,0,.12);
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(8,8,20,.72);
+  z-index:2000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.modalBox{
+  background:white;
+  width:min(850px,100%);
+  max-height:92vh;
+  overflow:auto;
+  border-radius:25px;
+  padding:25px;
+  position:relative;
+}
+
+.close{
+  position:absolute;
+  right:15px;
+  top:15px;
+  width:38px;
+  height:38px;
+  border:0;
+  border-radius:50%;
+  background:#f0f0f5;
+  font-size:20px;
+}
+
+.editor{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:25px;
+  margin-top:25px;
+}
+
+.editorCanvas{
+  min-height:350px;
+  border-radius:16px;
+  overflow:hidden;
+  background:#111;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.editorCanvas img{
+  max-width:100%;
+  max-height:500px;
+}
+
+.editorControls{
+  display:flex;
+  flex-direction:column;
+  gap:13px;
+}
+
+.editorControls input{
+  padding:13px;
+  border:1px solid #ddd;
+  border-radius:10px;
+}
+
+/* EMPTY */
+.empty{
+  text-align:center;
+  padding:60px 20px;
+  color:var(--muted);
+  background:white;
+  border-radius:20px;
+}
+
+/* FOOTER */
+footer{
+  margin-top:70px;
+  background:#111326;
+  color:white;
+  padding:45px 20px;
+}
+
+.footerInner{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:25px;
+}
+
+.footerText{
+  color:#a7a7b9;
+  line-height:1.7;
+  max-width:500px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .products{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .posterImage{
+    height:240px;
+  }
+}
+
+@media(max-width:600px){
+  .nav{
+    height:64px;
+  }
+
+  .logo{
+    font-size:20px;
+  }
+
+  .logoIcon{
+    width:37px;
+    height:37px;
+  }
+
+  .navBtn{
+    padding:8px 10px;
+    font-size:12px;
+  }
+
+  .hero{
+    margin:12px;
+    padding:45px 22px;
+    border-radius:24px;
+  }
+
+  .hero p{
+    font-size:15px;
+  }
+
+  .searchBox{
+    margin-top:20px;
+  }
+
+  .searchBox button{
+    padding:0 14px;
+  }
+
+  .products{
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+
+  .posterImage{
+    height:210px;
+  }
+
+  .cardBody{
+    padding:12px;
+  }
+
+  .cardTitle{
+    font-size:14px;
+  }
+
+  .buyBtn{
+    padding:8px 10px;
+    font-size:12px;
+  }
+
+  .price{
+    font-size:16px;
+  }
+
+  .formGrid{
+    grid-template-columns:1fr;
+  }
+
+  .editor{
+    grid-template-columns:1fr;
+  }
+
+  .footerInner{
+    flex-direction:column;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo">
+      <div class="logoIcon">P</div>
+      Poster<span>Baba</span>
+    </div>
+
+    <div class="navBtns">
+      <button class="navBtn" onclick="scrollToShop()">🛍️ Shop</button>
+      <button class="navBtn" onclick="scrollToAdmin()">⚙️ Admin</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="heroContent">
+    <div class="badge">✨ PREMIUM DESIGN MARKETPLACE</div>
+    <h1>Design. Download.<br>Stand Out.</h1>
+    <p>
+      Premium Posters, PLP, PSD, PNG, JPG & Creative Design Files
+      — all in one place.
+    </p>
+
+    <div class="searchBox">
+      <input id="searchInput" type="text"
+        placeholder="Search posters, PLP, PSD, PNG...">
+      <button onclick="searchProducts()">Search</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="shop">
+
+  <div class="sectionHead">
+    <div>
+      <h2>Explore Designs</h2>
+      <p>Choose your favourite design and download.</p>
+    </div>
+  </div>
+
+  <div class="categories">
+    <button class="category active" onclick="filterCategory('All',this)">All</button>
+    <button class="category" onclick="filterCategory('Festival',this)">🎉 Festival</button>
+    <button class="category" onclick="filterCategory('Business',this)">🏪 Business</button>
+    <button class="category" onclick="filterCategory('Birthday',this)">🎂 Birthday</button>
+    <button class="category" onclick="filterCategory('Wedding',this)">💍 Wedding</button>
+    <button class="category" onclick="filterCategory('Religious',this)">🕉️ Religious</button>
+    <button class="category" onclick="filterCategory('Social',this)">📢 Social</button>
+    <button class="category" onclick="filterCategory('Other',this)">✨ Other</button>
+  </div>
+
+  <br>
+
+  <div class="products" id="productGrid"></div>
+
+</section>
+
+
+<section class="admin" id="admin">
+
+<div class="adminPanel">
+
+  <div class="adminTitle">
+    <div>
+      <h2>⚙️ PosterBaba Admin</h2>
+      <p style="color:#777;margin-top:5px">
+        Add and manage your poster products.
+      </p>
+    </div>
+  </div>
+
+  <div class="formGrid">
+
+    <div class="field">
+      <label>Poster / Product Name</label>
+      <input id="productName"
+        placeholder="Example: Navratri Special Poster">
+    </div>
+
+    <div class="field">
+      <label>Category</label>
+      <select id="productCategory">
+        <option>Festival</option>
+        <option>Business</option>
+        <option>Birthday</option>
+        <option>Wedding</option>
+        <option>Religious</option>
+        <option>Social</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>File Type</label>
+      <select id="fileType">
+        <option>PLP</option>
+        <option>PSD</option>
+        <option>PNG</option>
+        <option>JPG</option>
+        <option>JPEG</option>
+        <option>ZIP</option>
+        <option>PDF</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Price ₹</label>
+      <input id="productPrice" type="number"
+        placeholder="99">
+    </div>
+
+    <div class="field">
+      <label>Product Type</label>
+      <select id="productStatus">
+        <option value="paid">💰 Paid</option>
+        <option value="free">🆓 Free</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label>Your Name / Creator</label>
+      <input id="creatorName"
+        placeholder="PosterBaba">
+    </div>
+
+    <div class="field full">
+      <label>Poster Preview Image</label>
+      <div class="uploadBox">
+        🖼️ Upload JPG / PNG poster preview
+        <br>
+        <input type="file" id="posterImage"
+          accept="image/png,image/jpeg,image/webp">
+      </div>
+    </div>
+
+    <div class="field full">
+      <label>Download File</label>
+      <div class="uploadBox">
+        📁 Upload PLP / PSD / PNG / JPG / ZIP etc.
+        <br>
+        <input type="file" id="downloadFile">
+      </div>
+    </div>
+
+    <div class="field full">
+      <button class="mainAction" onclick="addProduct()">
+        ➕ Add Poster Product
+      </button>
+    </div>
+
+  </div>
+
+
+  <div class="upiBox">
+
+    <h3>📲 Your UPI Payment Scanner</h3>
+
+    <p style="margin-top:6px;color:#777">
+      Upload your UPI QR image. It will appear on the payment screen.
+    </p>
+
+    <div style="margin-top:15px">
+      <input type="file" id="upiInput"
+        accept="image/png,image/jpeg,image/webp"
+        onchange="uploadUPI(event)">
+    </div>
+
+    <img id="upiPreview" class="qrPreview">
+
+  </div>
+
+</div>
+</section>
+
+
+<footer>
+  <div class="footerInner">
+    <div>
+      <h2>PosterBaba</h2>
+      <p class="footerText">
+        Premium poster, PLP, PSD, PNG and creative design marketplace.
+        Create beautiful designs and grow your creativity.
+      </p>
+    </div>
+
+    <div>
+      <b>Quick Links</b>
+      <p style="margin-top:12px;color:#aaa">
+        Home · Designs · Free Files · Premium · Contact
+      </p>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:35px;color:#777">
+    © 2026 PosterBaba. All Rights Reserved.
+  </div>
+</footer>
+
+
+<!-- PRODUCT MODAL -->
+
+<div class="modal" id="productModal">
+
+<div class="modalBox">
+
+<button class="close" onclick="closeModal()">×</button>
+
+<h2 id="modalTitle">Product</h2>
+
+<div class="editor">
+
+  <div class="editorCanvas">
+    <img id="modalImage">
+  </div>
+
+  <div class="editorControls">
+
+    <label><b>Edit Poster Name</b></label>
+
+    <input id="editName"
+      placeholder="Poster name">
+
+    <label><b>Edit Your Name</b></label>
+
+    <input id="editCreator"
+      placeholder="Creator name">
+
+    <button class="mainAction"
+      onclick="saveEdit()">
+      ✏️ Save Changes
+    </button>
+
+    <div id="paymentArea"></div>
+
+  </div>
+
+</div>
+
+</div>
+</div>
+
+
+<script>
+
+/* -------------------------
+   SAMPLE PRODUCTS
+-------------------------- */
+
+let products = JSON.parse(localStorage.getItem("posterbaba_products")) || [
+
+{
+ id:1,
+ name:"Premium Festival Poster",
+ category:"Festival",
+ type:"PLP",
+ price:99,
+ status:"paid",
+ creator:"PosterBaba",
+ image:"https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800"
+},
+
+{
+ id:2,
+ name:"Modern Business Poster",
+ category:"Business",
+ type:"PSD",
+ price:149,
+ status:"paid",
+ creator:"PosterBaba",
+ image:"https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800"
+},
+
+{
+ id:3,
+ name:"Creative Social Poster",
+ category:"Social",
+ type:"PNG",
+ price:0,
+ status:"free",
+ creator:"PosterBaba",
+ image:"https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800"
+}
+
+];
+
+let currentCategory="All";
+let currentProduct=null;
+
+
+/* -------------------------
+   SAVE PRODUCTS
+-------------------------- */
+
+function saveProducts(){
+  localStorage.setItem(
+    "posterbaba_products",
+    JSON.stringify(products)
+  );
+}
+
+
+/* -------------------------
+   SHOW PRODUCTS
+-------------------------- */
+
+function renderProducts(list=products){
+
+  const grid=document.getElementById("productGrid");
+
+  if(!list.length){
+
+    grid.innerHTML=`
+      <div class="empty" style="grid-column:1/-1">
+        <h2>😔 No designs found</h2>
+        <p>Try another search or category.</p>
+      </div>
+    `;
+
+    return;
+  }
+
+  grid.innerHTML=list.map(p=>`
+
+    <div class="card">
+
+      <div class="posterImage">
+
+        <img src="${p.image}" alt="${escapeHtml(p.name)}">
+
+        <span class="tag ${p.status==='free'?'free':''}">
+          ${p.status==='free'?'FREE':'PREMIUM'}
+        </span>
+
+      </div>
+
+      <div class="cardBody">
+
+        <div class="cardTitle">
+          ${escapeHtml(p.name)}
+        </div>
+
+        <div class="fileInfo">
+          ${p.type} · ${escapeHtml(p.category)}
+          ${p.creator ? ' · By '+escapeHtml(p.creator) : ''}
+        </div>
+
+        <div class="cardBottom">
+
+          <div class="price">
+            ${p.status==='free'?'FREE':'₹'+p.price}
+          </div>
+
+          <button class="buyBtn"
+            onclick="openProduct(${p.id})">
+            ${p.status==='free'?'Download':'View / Buy'}
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  `).join("");
+
+}
+
+
+/* -------------------------
+   ADD PRODUCT
+-------------------------- */
+
+function addProduct(){
+
+  const name=document.getElementById("productName").value.trim();
+  const category=document.getElementById("productCategory").value;
+  const type=document.getElementById("fileType").value;
+  const price=Number(document.getElementById("productPrice").value)||0;
+  const status=document.getElementById("productStatus").value;
+  const creator=document.getElementById("creatorName").value.trim();
+
+  const imageFile=document.getElementById("posterImage").files[0];
+  const downloadFile=document.getElementById("downloadFile").files[0];
+
+  if(!name){
+    alert("Please enter poster name.");
+    return;
+  }
+
+  if(!imageFile){
+    alert("Please upload poster preview image.");
+    return;
+  }
+
+  const reader=new FileReader();
+
+  reader.onload=function(e){
+
+    const product={
+
+      id:Date.now(),
+
+      name:name,
+
+      category:category,
+
+      type:type,
+
+      price:status==="free"?0:price,
+
+      status:status,
+
+      creator:creator || "PosterBaba",
+
+      image:e.target.result,
+
+      downloadName:downloadFile ?
+        downloadFile.name : ""
+
+    };
+
+    products.unshift(product);
+
+    saveProducts();
+
+    renderProducts();
+
+    alert("✅ Poster successfully added!");
+
+    document.getElementById("productName").value="";
+    document.getElementById("productPrice").value="";
+    document.getElementById("creatorName").value="";
+    document.getElementById("posterImage").value="";
+    document.getElementById("downloadFile").value="";
+
+  };
+
+  reader.readAsDataURL(imageFile);
+
+}
+
+
+/* -------------------------
+   PRODUCT MODAL
+-------------------------- */
+
+function openProduct(id){
+
+  currentProduct=products.find(p=>p.id===id);
+
+  if(!currentProduct) return;
+
+  document.getElementById("modalTitle").innerText=
+    currentProduct.name;
+
+  document.getElementById("modalImage").src=
+    currentProduct.image;
+
+  document.getElementById("editName").value=
+    currentProduct.name;
+
+  document.getElementById("editCreator").value=
+    currentProduct.creator || "";
+
+  const payment=document.getElementById("paymentArea");
+
+  if(currentProduct.status==="free"){
+
+    payment.innerHTML=`
+
+      <div style="margin-top:20px;padding:15px;background:#edfff6;border-radius:12px">
+
+        <b>🆓 Free Download</b>
+
+        <button class="mainAction"
+          style="margin-top:12px;width:100%"
+          onclick="downloadProduct()">
+
+          📥 Download ${currentProduct.type}
+
+        </button>
+
+      </div>
+
+    `;
+
+  }else{
+
+    const qr=localStorage.getItem("posterbaba_upi");
+
+    payment.innerHTML=`
+
+      <div style="margin-top:20px;padding:15px;background:#faf7ff;border-radius:15px">
+
+        <h3>💳 Buy this design</h3>
+
+        <p style="margin:8px 0">
+          Price:
+          <b style="font-size:22px">
+            ₹${currentProduct.price}
+          </b>
+        </p>
+
+        ${qr ?
+        `<img src="${qr}"
+          style="display:block;width:200px;max-width:100%;margin:15px auto;border-radius:12px">`
+        :
+        `<p style="color:#d33">
+          UPI QR not upl
