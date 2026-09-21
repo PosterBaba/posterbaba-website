@@ -3,1118 +3,1852 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PosterBaba — Premium Poster & Design Marketplace</title>
-<meta name="description" content="PosterBaba - Premium PLP, PSD, PNG, JPG and editable poster marketplace.">
+
+<title>PosterBaba - Premium Poster Marketplace</title>
+
+<meta name="description"
+content="PosterBaba - Premium Posters, PLP, PSD, PNG, JPG and Creative Designs">
 
 <style>
+
 *{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
 :root{
-  --primary:#6c2cff;
-  --secondary:#ff3d81;
-  --blue:#1473ff;
-  --dark:#111326;
-  --text:#24243a;
-  --muted:#74748b;
-  --white:#fff;
-  --bg:#f6f7fb;
-  --border:#e8e8f1;
-  --green:#13b86b;
-  --shadow:0 15px 45px rgba(40,30,100,.12);
+--primary:#6c2cff;
+--secondary:#ed238f;
+--dark:#11152d;
+--text:#20243a;
+--muted:#72778b;
+--bg:#f5f6fb;
+--white:#ffffff;
+--green:#09a968;
+--border:#e7e8f0;
 }
 
 body{
-  font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:var(--text);
+font-family:Arial,Helvetica,sans-serif;
+background:var(--bg);
+color:var(--text);
 }
 
-button,input,select{
-  font-family:inherit;
-}
+/* NAVBAR */
 
-button{
-  cursor:pointer;
-}
-
-/* HEADER */
-header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  background:rgba(255,255,255,.94);
-  backdrop-filter:blur(15px);
-  border-bottom:1px solid var(--border);
-}
-
-.nav{
-  max-width:1200px;
-  margin:auto;
-  height:72px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 18px;
+.navbar{
+height:70px;
+background:#fff;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 5%;
+box-shadow:0 2px 15px rgba(0,0,0,.08);
+position:sticky;
+top:0;
+z-index:100;
 }
 
 .logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  font-size:24px;
-  font-weight:900;
-  color:var(--dark);
+display:flex;
+align-items:center;
+gap:10px;
+font-size:23px;
+font-weight:900;
 }
 
 .logoIcon{
-  width:43px;
-  height:43px;
-  border-radius:13px;
-  display:grid;
-  place-items:center;
-  color:white;
-  font-size:22px;
-  background:linear-gradient(135deg,#6c2cff,#ff3d81);
-  box-shadow:0 8px 22px rgba(108,44,255,.3);
+width:43px;
+height:43px;
+border-radius:13px;
+display:grid;
+place-items:center;
+color:#fff;
+font-size:23px;
+background:linear-gradient(135deg,#6c2cff,#ed238f);
 }
 
-.logo span{
-  background:linear-gradient(90deg,#6428ff,#ff2675);
-  -webkit-background-clip:text;
-  color:transparent;
+.logoText{
+background:linear-gradient(90deg,#6c2cff,#ed238f);
+-webkit-background-clip:text;
+color:transparent;
 }
 
-.navBtns{
-  display:flex;
-  gap:9px;
+.navButtons{
+display:flex;
+gap:8px;
 }
 
-.navBtn{
-  border:0;
-  background:#f1f1f8;
-  padding:10px 14px;
-  border-radius:12px;
-  font-weight:700;
+.navButton{
+border:0;
+padding:10px 15px;
+border-radius:11px;
+font-weight:800;
+cursor:pointer;
 }
 
-.navBtn:hover{
-  background:#e7e4ff;
+.homeBtn{
+background:#f0edff;
+color:#5c25e9;
 }
 
 /* HERO */
-.hero{
-  max-width:1200px;
-  margin:25px auto 0;
-  padding:65px 25px;
-  border-radius:30px;
-  overflow:hidden;
-  position:relative;
-  color:white;
-  background:
-  radial-gradient(circle at 10% 20%,rgba(255,255,255,.22),transparent 25%),
-  radial-gradient(circle at 90% 10%,rgba(255,255,255,.18),transparent 25%),
-  linear-gradient(135deg,#3515a5,#6c2cff 45%,#ff287b);
-  box-shadow:var(--shadow);
-}
 
-.hero:after{
-  content:"";
-  position:absolute;
-  width:300px;
-  height:300px;
-  border-radius:50%;
-  right:-100px;
-  bottom:-160px;
-  background:rgba(255,255,255,.12);
+.hero{
+max-width:1300px;
+margin:20px auto;
+border-radius:30px;
+padding:60px 6%;
+color:white;
+position:relative;
+overflow:hidden;
+
+background:
+radial-gradient(circle at 10% 20%,rgba(255,255,255,.20),transparent 25%),
+radial-gradient(circle at 90% 20%,rgba(255,255,255,.16),transparent 25%),
+linear-gradient(120deg,#4720c9,#7625e8,#ed238f);
 }
 
 .heroContent{
-  max-width:720px;
-  position:relative;
-  z-index:2;
+position:relative;
+z-index:2;
+max-width:750px;
 }
 
 .badge{
-  display:inline-block;
-  padding:8px 14px;
-  border-radius:50px;
-  background:rgba(255,255,255,.16);
-  border:1px solid rgba(255,255,255,.25);
-  margin-bottom:18px;
-  font-weight:700;
-  font-size:13px;
+display:inline-block;
+padding:8px 15px;
+border-radius:30px;
+background:rgba(255,255,255,.17);
+border:1px solid rgba(255,255,255,.25);
+font-size:12px;
+font-weight:800;
 }
 
 .hero h1{
-  font-size:clamp(36px,6vw,65px);
-  line-height:1.02;
-  margin-bottom:18px;
+font-size:clamp(38px,7vw,72px);
+line-height:1;
+margin:20px 0;
 }
 
 .hero p{
-  font-size:18px;
-  line-height:1.6;
-  opacity:.92;
+font-size:18px;
+line-height:1.6;
+opacity:.94;
 }
 
 .searchBox{
-  margin-top:30px;
-  max-width:620px;
-  background:white;
-  padding:7px;
-  border-radius:17px;
-  display:flex;
-  box-shadow:0 12px 35px rgba(0,0,0,.2);
+margin-top:28px;
+max-width:700px;
+background:white;
+border-radius:16px;
+padding:6px;
+display:flex;
+box-shadow:0 12px 30px rgba(0,0,0,.2);
 }
 
 .searchBox input{
-  border:0;
-  outline:0;
-  flex:1;
-  padding:14px;
-  font-size:16px;
-  min-width:0;
+flex:1;
+border:0;
+outline:0;
+padding:15px;
+font-size:16px;
+min-width:0;
 }
 
-.searchBox button{
-  border:0;
-  border-radius:12px;
-  padding:0 22px;
-  color:white;
-  font-weight:800;
-  background:var(--dark);
+.searchButton{
+border:0;
+background:#11152d;
+color:#fff;
+padding:0 23px;
+border-radius:12px;
+font-weight:800;
+cursor:pointer;
 }
 
-/* CATEGORY */
-.section{
-  max-width:1200px;
-  margin:45px auto;
-  padding:0 18px;
+/* MAIN */
+
+.container{
+max-width:1300px;
+margin:auto;
+padding:0 4%;
 }
 
-.sectionHead{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:20px;
-  gap:15px;
+.sectionHeader{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin:35px 0 15px;
 }
 
-.sectionHead h2{
-  font-size:28px;
+.sectionHeader h2{
+font-size:28px;
 }
 
-.sectionHead p{
-  color:var(--muted);
-  margin-top:5px;
+.resultCount{
+color:var(--muted);
+font-size:14px;
 }
+
+/* CATEGORIES */
 
 .categories{
-  display:flex;
-  gap:12px;
-  overflow-x:auto;
-  padding-bottom:8px;
+display:flex;
+gap:10px;
+overflow-x:auto;
+padding-bottom:12px;
 }
 
 .category{
-  white-space:nowrap;
-  padding:12px 18px;
-  border:1px solid var(--border);
-  background:white;
-  border-radius:50px;
-  font-weight:700;
-  box-shadow:0 5px 15px rgba(0,0,0,.04);
+border:0;
+background:white;
+padding:11px 18px;
+border-radius:30px;
+white-space:nowrap;
+font-weight:700;
+cursor:pointer;
+box-shadow:0 3px 12px rgba(0,0,0,.06);
 }
 
-.category.active,
-.category:hover{
-  color:white;
-  background:linear-gradient(90deg,#6c2cff,#ff3d81);
+.category.active{
+background:linear-gradient(90deg,#6c2cff,#ed238f);
+color:white;
 }
 
 /* PRODUCTS */
-.products{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
+
+.productGrid{
+display:grid;
+grid-template-columns:
+repeat(auto-fill,minmax(220px,1fr));
+gap:20px;
 }
 
-.card{
-  background:white;
-  border-radius:20px;
-  overflow:hidden;
-  border:1px solid var(--border);
-  box-shadow:0 8px 25px rgba(30,20,80,.06);
-  transition:.25s;
+.productCard{
+background:white;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 6px 22px rgba(20,20,60,.08);
+border:1px solid var(--border);
+transition:.25s;
 }
 
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:var(--shadow);
+.productCard:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 35px rgba(30,20,90,.14);
 }
 
-.posterImage{
-  height:280px;
-  background:#eee;
-  position:relative;
-  overflow:hidden;
+.posterPreview{
+aspect-ratio:4/5;
+background:#eeeef5;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
 }
 
-.posterImage img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+.posterPreview img{
+width:100%;
+height:100%;
+object-fit:cover;
 }
 
-.tag{
-  position:absolute;
-  left:12px;
-  top:12px;
-  color:white;
-  padding:6px 10px;
-  border-radius:8px;
-  font-size:12px;
-  font-weight:800;
-  background:#111;
+.placeholder{
+font-size:55px;
 }
 
-.free{
-  background:var(--green);
+.productInfo{
+padding:15px;
 }
 
-.cardBody{
-  padding:16px;
+.productName{
+font-size:17px;
+font-weight:900;
 }
 
-.cardTitle{
-  font-weight:800;
-  font-size:17px;
-  margin-bottom:7px;
+.productMeta{
+font-size:13px;
+color:var(--muted);
+margin-top:7px;
 }
 
-.fileInfo{
-  color:var(--muted);
-  font-size:13px;
-  margin-bottom:12px;
-}
-
-.cardBottom{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.productBottom{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-top:13px;
 }
 
 .price{
-  font-size:20px;
-  font-weight:900;
+font-size:19px;
+font-weight:900;
 }
 
-.buyBtn{
-  border:0;
-  color:white;
-  padding:10px 15px;
-  border-radius:10px;
-  font-weight:800;
-  background:linear-gradient(90deg,#6428ff,#ff2675);
+.freePrice{
+color:var(--green);
 }
 
-/* ADMIN */
-.admin{
-  max-width:1200px;
-  margin:50px auto;
-  padding:0 18px;
+.productButtons{
+display:flex;
+gap:7px;
+margin-top:12px;
 }
 
-.adminPanel{
-  background:white;
-  border-radius:24px;
-  padding:25px;
-  border:1px solid var(--border);
-  box-shadow:var(--shadow);
+.productButtons button{
+flex:1;
+padding:10px 7px;
+border:0;
+border-radius:10px;
+font-weight:800;
+cursor:pointer;
 }
 
-.adminTitle{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:22px;
+.editButton{
+background:#eeeaff;
+color:#6125ed;
 }
 
-.formGrid{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:15px;
-}
-
-.field{
-  display:flex;
-  flex-direction:column;
-  gap:7px;
-}
-
-.field label{
-  font-size:13px;
-  font-weight:800;
-}
-
-.field input,
-.field select{
-  width:100%;
-  padding:13px;
-  border:1px solid #ddddeb;
-  border-radius:11px;
-  outline:none;
-  background:#fafaff;
-}
-
-.field input:focus,
-.field select:focus{
-  border-color:var(--primary);
-}
-
-.full{
-  grid-column:1/-1;
-}
-
-.uploadBox{
-  border:2px dashed #cfc9ff;
-  background:#faf9ff;
-  padding:25px;
-  text-align:center;
-  border-radius:15px;
-}
-
-.uploadBox input{
-  margin-top:12px;
-}
-
-.mainAction{
-  border:0;
-  color:white;
-  padding:14px 22px;
-  border-radius:12px;
-  font-weight:900;
-  background:linear-gradient(90deg,#6428ff,#ff2675);
-}
-
-/* UPI */
-.upiBox{
-  margin-top:25px;
-  padding:20px;
-  border-radius:18px;
-  background:linear-gradient(135deg,#f2edff,#fff0f6);
-}
-
-.qrPreview{
-  max-width:220px;
-  max-height:220px;
-  display:none;
-  margin:15px auto;
-  border-radius:15px;
-  box-shadow:0 8px 25px rgba(0,0,0,.12);
-}
-
-/* MODAL */
-.modal{
-  position:fixed;
-  inset:0;
-  background:rgba(8,8,20,.72);
-  z-index:2000;
-  display:none;
-  align-items:center;
-  justify-content:center;
-  padding:20px;
-}
-
-.modalBox{
-  background:white;
-  width:min(850px,100%);
-  max-height:92vh;
-  overflow:auto;
-  border-radius:25px;
-  padding:25px;
-  position:relative;
-}
-
-.close{
-  position:absolute;
-  right:15px;
-  top:15px;
-  width:38px;
-  height:38px;
-  border:0;
-  border-radius:50%;
-  background:#f0f0f5;
-  font-size:20px;
-}
-
-.editor{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:25px;
-  margin-top:25px;
-}
-
-.editorCanvas{
-  min-height:350px;
-  border-radius:16px;
-  overflow:hidden;
-  background:#111;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.editorCanvas img{
-  max-width:100%;
-  max-height:500px;
-}
-
-.editorControls{
-  display:flex;
-  flex-direction:column;
-  gap:13px;
-}
-
-.editorControls input{
-  padding:13px;
-  border:1px solid #ddd;
-  border-radius:10px;
+.downloadButton{
+background:linear-gradient(90deg,#6c2cff,#ed238f);
+color:#fff;
 }
 
 /* EMPTY */
+
 .empty{
-  text-align:center;
-  padding:60px 20px;
-  color:var(--muted);
-  background:white;
-  border-radius:20px;
+background:white;
+border-radius:20px;
+padding:60px 20px;
+text-align:center;
+color:var(--muted);
+grid-column:1/-1;
+}
+
+/* MODAL */
+
+.modal{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,.72);
+display:none;
+align-items:center;
+justify-content:center;
+padding:20px;
+z-index:1000;
+}
+
+.modal.show{
+display:flex;
+}
+
+.modalBox{
+background:white;
+width:100%;
+max-width:650px;
+max-height:92vh;
+overflow:auto;
+border-radius:25px;
+padding:23px;
+position:relative;
+}
+
+.closeButton{
+position:absolute;
+right:15px;
+top:15px;
+width:38px;
+height:38px;
+border:0;
+border-radius:50%;
+background:#eee;
+font-size:22px;
+cursor:pointer;
+}
+
+.modalBox h2{
+padding-right:45px;
+}
+
+.editForm{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:13px;
+margin-top:20px;
+}
+
+.field{
+display:flex;
+flex-direction:column;
+gap:7px;
+}
+
+.field.full{
+grid-column:1/-1;
+}
+
+.field label{
+font-weight:800;
+font-size:14px;
+}
+
+.field input{
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px;
+outline:none;
+}
+
+.field input:focus{
+border-color:var(--primary);
+}
+
+.editPreview{
+margin-top:20px;
+background:#f0f0f5;
+border-radius:17px;
+padding:15px;
+text-align:center;
+}
+
+.editPreview img{
+max-width:100%;
+max-height:400px;
+border-radius:12px;
+}
+
+.userName{
+font-size:28px;
+font-weight:900;
+margin-top:10px;
+}
+
+.userMobile{
+color:var(--muted);
+margin-top:5px;
+}
+
+.mainButton{
+width:100%;
+margin-top:12px;
+padding:14px;
+border:0;
+border-radius:12px;
+font-weight:900;
+cursor:pointer;
+background:linear-gradient(90deg,#6c2cff,#ed238f);
+color:white;
+}
+
+/* PAYMENT */
+
+.paymentBox{
+margin-top:20px;
+padding:18px;
+background:#faf8ff;
+border-radius:16px;
+text-align:center;
+}
+
+.upiQR{
+max-width:220px;
+width:100%;
+border-radius:12px;
+margin:15px auto;
+display:block;
 }
 
 /* FOOTER */
+
 footer{
-  margin-top:70px;
-  background:#111326;
-  color:white;
-  padding:45px 20px;
+margin-top:60px;
+background:#11152d;
+color:#fff;
+padding:40px 5%;
+text-align:center;
 }
 
-.footerInner{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  justify-content:space-between;
-  gap:25px;
-}
-
-.footerText{
-  color:#a7a7b9;
-  line-height:1.7;
-  max-width:500px;
+footer p{
+color:#aaa;
+margin-top:10px;
 }
 
 /* MOBILE */
-@media(max-width:900px){
-  .products{
-    grid-template-columns:repeat(2,1fr);
-  }
 
-  .posterImage{
-    height:240px;
-  }
+@media(max-width:650px){
+
+.navbar{
+padding:0 4%;
 }
 
-@media(max-width:600px){
-  .nav{
-    height:64px;
-  }
-
-  .logo{
-    font-size:20px;
-  }
-
-  .logoIcon{
-    width:37px;
-    height:37px;
-  }
-
-  .navBtn{
-    padding:8px 10px;
-    font-size:12px;
-  }
-
-  .hero{
-    margin:12px;
-    padding:45px 22px;
-    border-radius:24px;
-  }
-
-  .hero p{
-    font-size:15px;
-  }
-
-  .searchBox{
-    margin-top:20px;
-  }
-
-  .searchBox button{
-    padding:0 14px;
-  }
-
-  .products{
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-  }
-
-  .posterImage{
-    height:210px;
-  }
-
-  .cardBody{
-    padding:12px;
-  }
-
-  .cardTitle{
-    font-size:14px;
-  }
-
-  .buyBtn{
-    padding:8px 10px;
-    font-size:12px;
-  }
-
-  .price{
-    font-size:16px;
-  }
-
-  .formGrid{
-    grid-template-columns:1fr;
-  }
-
-  .editor{
-    grid-template-columns:1fr;
-  }
-
-  .footerInner{
-    flex-direction:column;
-  }
+.logo{
+font-size:20px;
 }
+
+.logoIcon{
+width:38px;
+height:38px;
+}
+
+.hero{
+margin:10px;
+padding:42px 22px;
+border-radius:23px;
+}
+
+.hero p{
+font-size:15px;
+}
+
+.searchBox{
+margin-top:22px;
+}
+
+.searchButton{
+padding:0 15px;
+}
+
+.productGrid{
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.productName{
+font-size:14px;
+}
+
+.productInfo{
+padding:11px;
+}
+
+.productMeta{
+font-size:11px;
+}
+
+.productButtons button{
+font-size:11px;
+padding:9px 4px;
+}
+
+.price{
+font-size:16px;
+}
+
+.editForm{
+grid-template-columns:1fr;
+}
+
+.field.full{
+grid-column:auto;
+}
+
+.sectionHeader h2{
+font-size:23px;
+}
+
+}
+
 </style>
 </head>
 
 <body>
 
-<header>
-  <div class="nav">
-    <div class="logo">
-      <div class="logoIcon">P</div>
-      Poster<span>Baba</span>
-    </div>
+<!-- NAVBAR -->
 
-    <div class="navBtns">
-      <button class="navBtn" onclick="scrollToShop()">🛍️ Shop</button>
-      <button class="navBtn" onclick="scrollToAdmin()">⚙️ Admin</button>
-    </div>
-  </div>
-</header>
+<header class="navbar">
 
-<section class="hero">
-  <div class="heroContent">
-    <div class="badge">✨ PREMIUM DESIGN MARKETPLACE</div>
-    <h1>Design. Download.<br>Stand Out.</h1>
-    <p>
-      Premium Posters, PLP, PSD, PNG, JPG & Creative Design Files
-      — all in one place.
-    </p>
+<a href="index.html"
+style="text-decoration:none;color:inherit">
 
-    <div class="searchBox">
-      <input id="searchInput" type="text"
-        placeholder="Search posters, PLP, PSD, PNG...">
-      <button onclick="searchProducts()">Search</button>
-    </div>
-  </div>
-</section>
+<div class="logo">
 
-<section class="section" id="shop">
+<div class="logoIcon">
+P
+</div>
 
-  <div class="sectionHead">
-    <div>
-      <h2>Explore Designs</h2>
-      <p>Choose your favourite design and download.</p>
-    </div>
-  </div>
-
-  <div class="categories">
-    <button class="category active" onclick="filterCategory('All',this)">All</button>
-    <button class="category" onclick="filterCategory('Festival',this)">🎉 Festival</button>
-    <button class="category" onclick="filterCategory('Business',this)">🏪 Business</button>
-    <button class="category" onclick="filterCategory('Birthday',this)">🎂 Birthday</button>
-    <button class="category" onclick="filterCategory('Wedding',this)">💍 Wedding</button>
-    <button class="category" onclick="filterCategory('Religious',this)">🕉️ Religious</button>
-    <button class="category" onclick="filterCategory('Social',this)">📢 Social</button>
-    <button class="category" onclick="filterCategory('Other',this)">✨ Other</button>
-  </div>
-
-  <br>
-
-  <div class="products" id="productGrid"></div>
-
-</section>
-
-
-<section class="admin" id="admin">
-
-<div class="adminPanel">
-
-  <div class="adminTitle">
-    <div>
-      <h2>⚙️ PosterBaba Admin</h2>
-      <p style="color:#777;margin-top:5px">
-        Add and manage your poster products.
-      </p>
-    </div>
-  </div>
-
-  <div class="formGrid">
-
-    <div class="field">
-      <label>Poster / Product Name</label>
-      <input id="productName"
-        placeholder="Example: Navratri Special Poster">
-    </div>
-
-    <div class="field">
-      <label>Category</label>
-      <select id="productCategory">
-        <option>Festival</option>
-        <option>Business</option>
-        <option>Birthday</option>
-        <option>Wedding</option>
-        <option>Religious</option>
-        <option>Social</option>
-        <option>Other</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label>File Type</label>
-      <select id="fileType">
-        <option>PLP</option>
-        <option>PSD</option>
-        <option>PNG</option>
-        <option>JPG</option>
-        <option>JPEG</option>
-        <option>ZIP</option>
-        <option>PDF</option>
-        <option>Other</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label>Price ₹</label>
-      <input id="productPrice" type="number"
-        placeholder="99">
-    </div>
-
-    <div class="field">
-      <label>Product Type</label>
-      <select id="productStatus">
-        <option value="paid">💰 Paid</option>
-        <option value="free">🆓 Free</option>
-      </select>
-    </div>
-
-    <div class="field">
-      <label>Your Name / Creator</label>
-      <input id="creatorName"
-        placeholder="PosterBaba">
-    </div>
-
-    <div class="field full">
-      <label>Poster Preview Image</label>
-      <div class="uploadBox">
-        🖼️ Upload JPG / PNG poster preview
-        <br>
-        <input type="file" id="posterImage"
-          accept="image/png,image/jpeg,image/webp">
-      </div>
-    </div>
-
-    <div class="field full">
-      <label>Download File</label>
-      <div class="uploadBox">
-        📁 Upload PLP / PSD / PNG / JPG / ZIP etc.
-        <br>
-        <input type="file" id="downloadFile">
-      </div>
-    </div>
-
-    <div class="field full">
-      <button class="mainAction" onclick="addProduct()">
-        ➕ Add Poster Product
-      </button>
-    </div>
-
-  </div>
-
-
-  <div class="upiBox">
-
-    <h3>📲 Your UPI Payment Scanner</h3>
-
-    <p style="margin-top:6px;color:#777">
-      Upload your UPI QR image. It will appear on the payment screen.
-    </p>
-
-    <div style="margin-top:15px">
-      <input type="file" id="upiInput"
-        accept="image/png,image/jpeg,image/webp"
-        onchange="uploadUPI(event)">
-    </div>
-
-    <img id="upiPreview" class="qrPreview">
-
-  </div>
+<div>
+Poster<span class="logoText">Baba</span>
+</div>
 
 </div>
+
+</a>
+
+<div class="navButtons">
+
+<button
+class="navButton homeBtn"
+onclick="scrollToShop()">
+
+🛍️ Shop
+
+</button>
+
+</div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="heroContent">
+
+<span class="badge">
+✨ PREMIUM DESIGN MARKETPLACE
+</span>
+
+<h1>
+Design.<br>
+Download.<br>
+Stand Out.
+</h1>
+
+<p>
+Premium Posters, PLP, PSD, PNG, JPG
+और Creative Design Files — एक ही जगह।
+</p>
+
+<div class="searchBox">
+
+<input
+id="searchInput"
+type="text"
+placeholder="Search poster, PLP, PSD, PNG..."
+onkeyup="searchProducts()"
+>
+
+<button
+class="searchButton"
+onclick="searchProducts()">
+
+Search
+
+</button>
+
+</div>
+
+</div>
+
 </section>
 
 
-<footer>
-  <div class="footerInner">
-    <div>
-      <h2>PosterBaba</h2>
-      <p class="footerText">
-        Premium poster, PLP, PSD, PNG and creative design marketplace.
-        Create beautiful designs and grow your creativity.
-      </p>
-    </div>
+<!-- SHOP -->
 
-    <div>
-      <b>Quick Links</b>
-      <p style="margin-top:12px;color:#aaa">
-        Home · Designs · Free Files · Premium · Contact
-      </p>
-    </div>
-  </div>
+<main
+class="container"
+id="shop">
 
-  <div style="text-align:center;margin-top:35px;color:#777">
-    © 2026 PosterBaba. All Rights Reserved.
-  </div>
-</footer>
+<div class="sectionHeader">
+
+<div>
+
+<h2>
+Explore Designs
+</h2>
+
+</div>
+
+<div
+class="resultCount"
+id="resultCount">
+0 Designs
+</div>
+
+</div>
+
+
+<!-- CATEGORIES -->
+
+<div
+class="categories"
+id="categories">
+
+</div>
+
+
+<br>
+
+
+<!-- PRODUCTS -->
+
+<div
+class="productGrid"
+id="productGrid">
+
+</div>
+
+</main>
+
+
+<!-- EDIT MODAL -->
+
+<div
+class="modal"
+id="editModal">
+
+<div class="modalBox">
+
+<button
+class="closeButton"
+onclick="closeEdit()">
+
+×
+</button>
+
+<h2 id="editTitle">
+Edit Poster
+</h2>
+
+<p
+style="color:#72778b;margin-top:7px">
+
+अपना Photo और Name लगाकर poster तैयार करें।
+
+</p>
+
+
+<div class="editForm">
+
+<div class="field">
+
+<label>
+Your Name
+</label>
+
+<input
+id="customerName"
+placeholder="अपना नाम लिखें"
+oninput="updatePreview()">
+
+</div>
+
+
+<div class="field">
+
+<label>
+Mobile Number
+</label>
+
+<input
+id="customerMobile"
+placeholder="Mobile Number"
+oninput="updatePreview()">
+
+</div>
+
+
+<div class="field full">
+
+<label>
+Your Photo
+</label>
+
+<input
+id="customerPhoto"
+type="file"
+accept="image/*"
+onchange="loadCustomerPhoto(event)">
+
+</div>
+
+</div>
+
+
+<!-- PREVIEW -->
+
+<div
+class="editPreview">
+
+<img
+id="customerPhotoPreview"
+style="display:none">
+
+<div
+class="userName"
+id="customerNamePreview">
+
+आपका नाम
+
+</div>
+
+<div
+class="userMobile"
+id="customerMobilePreview">
+
+</div>
+
+</div>
+
+
+<button
+class="mainButton"
+onclick="downloadEditedPoster()">
+
+⬇️ Download Edited Poster
+
+</button>
+
+</div>
+
+</div>
 
 
 <!-- PRODUCT MODAL -->
 
-<div class="modal" id="productModal">
+<div
+class="modal"
+id="productModal">
 
 <div class="modalBox">
 
-<button class="close" onclick="closeModal()">×</button>
+<button
+class="closeButton"
+onclick="closeProduct()">
 
-<h2 id="modalTitle">Product</h2>
+×
+</button>
 
-<div class="editor">
+<h2 id="productModalTitle">
+Poster
+</h2>
 
-  <div class="editorCanvas">
-    <img id="modalImage">
-  </div>
-
-  <div class="editorControls">
-
-    <label><b>Edit Poster Name</b></label>
-
-    <input id="editName"
-      placeholder="Poster name">
-
-    <label><b>Edit Your Name</b></label>
-
-    <input id="editCreator"
-      placeholder="Creator name">
-
-    <button class="mainAction"
-      onclick="saveEdit()">
-      ✏️ Save Changes
-    </button>
-
-    <div id="paymentArea"></div>
-
-  </div>
+<div
+id="productModalContent">
 
 </div>
 
 </div>
+
 </div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+<h2>
+PosterBaba
+</h2>
+
+<p>
+Premium Poster • PLP • PSD • PNG • JPG • Creative Designs
+</p>
+
+<p>
+© 2026 PosterBaba. All Rights Reserved.
+</p>
+
+</footer>
 
 
 <script>
 
-/* -------------------------
-   SAMPLE PRODUCTS
--------------------------- */
+/* ==================================
+   PRODUCTS
+================================== */
 
-let products = JSON.parse(localStorage.getItem("posterbaba_products")) || [
+const defaultProducts = [
 
 {
- id:1,
- name:"Premium Festival Poster",
- category:"Festival",
- type:"PLP",
- price:99,
- status:"paid",
- creator:"PosterBaba",
- image:"https://images.unsplash.com/photo-1531058020387-3be344556be6?w=800"
+id:"demo1",
+
+title:"Premium Festival Poster",
+
+category:"Festival",
+
+type:"Free",
+
+price:0,
+
+creator:"PosterBaba",
+
+preview:"",
+
+file:""
+
 },
 
 {
- id:2,
- name:"Modern Business Poster",
- category:"Business",
- type:"PSD",
- price:149,
- status:"paid",
- creator:"PosterBaba",
- image:"https://images.unsplash.com/photo-1558655146-9f40138edfeb?w=800"
-},
+id:"demo2",
 
-{
- id:3,
- name:"Creative Social Poster",
- category:"Social",
- type:"PNG",
- price:0,
- status:"free",
- creator:"PosterBaba",
- image:"https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800"
+title:"Business Promotion Poster",
+
+category:"Business",
+
+type:"Paid",
+
+price:99,
+
+creator:"PosterBaba",
+
+preview:"",
+
+file:""
+
 }
 
 ];
 
-let currentCategory="All";
-let currentProduct=null;
+
+/*
+IMPORTANT:
+
+Products added from Admin panel
+will be stored here.
+
+*/
+
+let products =
+JSON.parse(
+localStorage.getItem("pb_products")
+) || defaultProducts;
 
 
-/* -------------------------
-   SAVE PRODUCTS
--------------------------- */
+let selectedProduct = null;
 
-function saveProducts(){
-  localStorage.setItem(
-    "posterbaba_products",
-    JSON.stringify(products)
-  );
-}
+let customerPhotoData = "";
 
 
-/* -------------------------
-   SHOW PRODUCTS
--------------------------- */
+/* ==================================
+   CATEGORIES
+================================== */
 
-function renderProducts(list=products){
+const categories = [
 
-  const grid=document.getElementById("productGrid");
+"All",
 
-  if(!list.length){
+"Festival",
 
-    grid.innerHTML=`
-      <div class="empty" style="grid-column:1/-1">
-        <h2>😔 No designs found</h2>
-        <p>Try another search or category.</p>
-      </div>
-    `;
+"Business",
 
-    return;
-  }
+"Birthday",
 
-  grid.innerHTML=list.map(p=>`
+"Wedding",
 
-    <div class="card">
+"Religious",
 
-      <div class="posterImage">
+"Social",
 
-        <img src="${p.image}" alt="${escapeHtml(p.name)}">
+"Other"
 
-        <span class="tag ${p.status==='free'?'free':''}">
-          ${p.status==='free'?'FREE':'PREMIUM'}
-        </span>
+];
 
-      </div>
 
-      <div class="cardBody">
+let activeCategory = "All";
 
-        <div class="cardTitle">
-          ${escapeHtml(p.name)}
-        </div>
 
-        <div class="fileInfo">
-          ${p.type} · ${escapeHtml(p.category)}
-          ${p.creator ? ' · By '+escapeHtml(p.creator) : ''}
-        </div>
+function createCategories(){
 
-        <div class="cardBottom">
+const box =
+document.getElementById("categories");
 
-          <div class="price">
-            ${p.status==='free'?'FREE':'₹'+p.price}
-          </div>
+box.innerHTML =
+categories.map(
 
-          <button class="buyBtn"
-            onclick="openProduct(${p.id})">
-            ${p.status==='free'?'Download':'View / Buy'}
-          </button>
+(category,index)=>`
 
-        </div>
+<button
+class="category ${index===0?"active":""}"
+onclick="selectCategory('${category}',this)">
 
-      </div>
+${category}
 
-    </div>
+</button>
 
-  `).join("");
+`
+
+).join("");
 
 }
 
 
-/* -------------------------
-   ADD PRODUCT
--------------------------- */
+/* ==================================
+   CATEGORY FILTER
+================================== */
 
-function addProduct(){
+function selectCategory(category,button){
 
-  const name=document.getElementById("productName").value.trim();
-  const category=document.getElementById("productCategory").value;
-  const type=document.getElementById("fileType").value;
-  const price=Number(document.getElementById("productPrice").value)||0;
-  const status=document.getElementById("productStatus").value;
-  const creator=document.getElementById("creatorName").value.trim();
+activeCategory = category;
 
-  const imageFile=document.getElementById("posterImage").files[0];
-  const downloadFile=document.getElementById("downloadFile").files[0];
+document
+.querySelectorAll(".category")
+.forEach(
 
-  if(!name){
-    alert("Please enter poster name.");
-    return;
-  }
+b=>b.classList.remove("active")
 
-  if(!imageFile){
-    alert("Please upload poster preview image.");
-    return;
-  }
+);
 
-  const reader=new FileReader();
+button.classList.add("active");
 
-  reader.onload=function(e){
-
-    const product={
-
-      id:Date.now(),
-
-      name:name,
-
-      category:category,
-
-      type:type,
-
-      price:status==="free"?0:price,
-
-      status:status,
-
-      creator:creator || "PosterBaba",
-
-      image:e.target.result,
-
-      downloadName:downloadFile ?
-        downloadFile.name : ""
-
-    };
-
-    products.unshift(product);
-
-    saveProducts();
-
-    renderProducts();
-
-    alert("✅ Poster successfully added!");
-
-    document.getElementById("productName").value="";
-    document.getElementById("productPrice").value="";
-    document.getElementById("creatorName").value="";
-    document.getElementById("posterImage").value="";
-    document.getElementById("downloadFile").value="";
-
-  };
-
-  reader.readAsDataURL(imageFile);
+renderProducts();
 
 }
 
 
-/* -------------------------
-   PRODUCT MODAL
--------------------------- */
+/* ==================================
+   SEARCH
+================================== */
+
+function searchProducts(){
+
+renderProducts();
+
+}
+
+
+/* ==================================
+   RENDER PRODUCTS
+================================== */
+
+function renderProducts(){
+
+const grid =
+document.getElementById("productGrid");
+
+const search =
+document
+.getElementById("searchInput")
+.value
+.toLowerCase()
+.trim();
+
+
+let filtered =
+products.filter(product=>{
+
+const categoryMatch =
+activeCategory==="All" ||
+product.category===activeCategory;
+
+const searchMatch =
+!search ||
+
+product.title
+.toLowerCase()
+.includes(search) ||
+
+product.category
+.toLowerCase()
+.includes(search) ||
+
+product.type
+.toLowerCase()
+.includes(search);
+
+return categoryMatch && searchMatch;
+
+});
+
+
+document
+.getElementById("resultCount")
+.textContent =
+filtered.length+" Designs";
+
+
+if(filtered.length===0){
+
+grid.innerHTML=`
+
+<div class="empty">
+
+<h2>
+😔 No Design Found
+</h2>
+
+<p style="margin-top:8px">
+
+दूसरा keyword या category try करें।
+
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+grid.innerHTML =
+
+filtered.map(product=>`
+
+<article class="productCard">
+
+
+<div class="posterPreview">
+
+${
+product.preview
+
+?
+
+`<img
+src="${product.preview}"
+alt="${escapeHTML(product.title)}">`
+
+:
+
+`<div class="placeholder">
+🎨
+</div>`
+
+}
+
+</div>
+
+
+<div class="productInfo">
+
+
+<div class="productName">
+
+${escapeHTML(product.title)}
+
+</div>
+
+
+<div class="productMeta">
+
+${escapeHTML(product.category)}
+
+•
+
+${escapeHTML(product.type)}
+
+•
+
+By ${escapeHTML(product.creator || "PosterBaba")}
+
+</div>
+
+
+<div class="productBottom">
+
+<div
+class="price ${product.type==="Free"?"freePrice":""}">
+
+${
+product.type==="Free"
+?
+"FREE"
+:
+"₹"+Number(product.price || 0)
+}
+
+</div>
+
+</div>
+
+
+<div class="productButtons">
+
+
+<button
+class="editButton"
+onclick="openEditor('${product.id}')">
+
+✏️ Edit
+
+</button>
+
+
+<button
+class="downloadButton"
+onclick="openProduct('${product.id}')">
+
+${
+product.type==="Free"
+?
+"⬇️ Download"
+:
+"🛒 Buy"
+}
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+</article>
+
+`).join("");
+
+}
+
+
+/* ==================================
+   OPEN EDITOR
+================================== */
+
+function openEditor(id){
+
+selectedProduct =
+products.find(
+product=>String(product.id)===String(id)
+);
+
+if(!selectedProduct){
+
+return;
+
+}
+
+
+document
+.getElementById("editTitle")
+.textContent =
+"Edit: "+selectedProduct.title;
+
+
+document
+.getElementById("customerName")
+.value="";
+
+
+document
+.getElementById("customerMobile")
+.value="";
+
+
+document
+.getElementById("customerPhoto")
+.value="";
+
+
+customerPhotoData="";
+
+
+document
+.getElementById("customerPhotoPreview")
+.style.display="none";
+
+
+document
+.getElementById("customerNamePreview")
+.textContent=
+"आपका नाम";
+
+
+document
+.getElementById("customerMobilePreview")
+.textContent="";
+
+
+document
+.getElementById("editModal")
+.classList.add("show");
+
+}
+
+
+/* ==================================
+   CUSTOMER PHOTO
+================================== */
+
+function loadCustomerPhoto(event){
+
+const file =
+event.target.files[0];
+
+if(!file){
+
+return;
+
+}
+
+
+const reader =
+new FileReader();
+
+
+reader.onload =
+function(e){
+
+customerPhotoData =
+e.target.result;
+
+
+const image =
+document.getElementById(
+"customerPhotoPreview"
+);
+
+
+image.src =
+customerPhotoData;
+
+
+image.style.display =
+"block";
+
+};
+
+
+reader.readAsDataURL(file);
+
+}
+
+
+/* ==================================
+   UPDATE PREVIEW
+================================== */
+
+function updatePreview(){
+
+const name =
+document
+.getElementById("customerName")
+.value;
+
+
+const mobile =
+document
+.getElementById("customerMobile")
+.value;
+
+
+document
+.getElementById("customerNamePreview")
+.textContent =
+name || "आपका नाम";
+
+
+document
+.getElementById("customerMobilePreview")
+.textContent =
+mobile;
+
+}
+
+
+/* ==================================
+   DOWNLOAD EDITED POSTER
+================================== */
+
+function downloadEditedPoster(){
+
+const name =
+document
+.getElementById("customerName")
+.value
+.trim()
+|| "आपका नाम";
+
+
+const mobile =
+document
+.getElementById("customerMobile")
+.value
+.trim();
+
+
+const canvas =
+document.createElement("canvas");
+
+
+canvas.width=1080;
+
+canvas.height=1350;
+
+
+const ctx =
+canvas.getContext("2d");
+
+
+/* BACKGROUND */
+
+const gradient =
+ctx.createLinearGradient(
+0,
+0,
+1080,
+1350
+);
+
+
+gradient.addColorStop(
+0,
+"#5b24d6"
+);
+
+
+gradient.addColorStop(
+1,
+"#ed238f"
+);
+
+
+ctx.fillStyle =
+gradient;
+
+
+ctx.fillRect(
+0,
+0,
+1080,
+1350
+);
+
+
+/* TITLE */
+
+ctx.fillStyle="#ffffff";
+
+ctx.textAlign="center";
+
+ctx.font=
+"bold 60px Arial";
+
+
+ctx.fillText(
+selectedProduct
+?
+selectedProduct.title
+:
+"PosterBaba",
+540,
+150
+);
+
+
+/* PHOTO */
+
+if(customerPhotoData){
+
+const img =
+new Image();
+
+
+img.onload =
+function(){
+
+ctx.save();
+
+
+ctx.beginPath();
+
+ctx.arc(
+540,
+500,
+210,
+0,
+Math.PI*2
+);
+
+
+ctx.clip();
+
+
+ctx.drawImage(
+img,
+330,
+290,
+420,
+420
+);
+
+
+ctx.restore();
+
+
+drawTextAndDownload(
+ctx,
+canvas,
+name,
+mobile
+);
+
+};
+
+
+img.src =
+customerPhotoData;
+
+}
+
+else{
+
+drawTextAndDownload(
+ctx,
+canvas,
+name,
+mobile
+);
+
+}
+
+}
+
+
+/* ==================================
+   TEXT + DOWNLOAD
+================================== */
+
+function drawTextAndDownload(
+ctx,
+canvas,
+name,
+mobile
+){
+
+ctx.fillStyle="#ffffff";
+
+ctx.textAlign="center";
+
+ctx.font=
+"bold 62px Arial";
+
+
+ctx.fillText(
+name,
+540,
+920
+);
+
+
+if(mobile){
+
+ctx.font=
+"32px Arial";
+
+
+ctx.fillText(
+mobile,
+540,
+980
+);
+
+}
+
+
+ctx.font=
+"bold 38px Arial";
+
+
+ctx.fillText(
+"PosterBaba",
+540,
+1230
+);
+
+
+const link =
+document.createElement("a");
+
+
+link.download =
+"PosterBaba-Edited-Poster.png";
+
+
+link.href =
+canvas.toDataURL("image/png");
+
+
+link.click();
+
+}
+
+
+/* ==================================
+   PRODUCT VIEW / BUY
+================================== */
 
 function openProduct(id){
 
-  currentProduct=products.find(p=>p.id===id);
+selectedProduct =
+products.find(
+product=>String(product.id)===String(id)
+);
 
-  if(!currentProduct) return;
 
-  document.getElementById("modalTitle").innerText=
-    currentProduct.name;
+if(!selectedProduct){
 
-  document.getElementById("modalImage").src=
-    currentProduct.image;
+return;
 
-  document.getElementById("editName").value=
-    currentProduct.name;
+}
 
-  document.getElementById("editCreator").value=
-    currentProduct.creator || "";
 
-  const payment=document.getElementById("paymentArea");
+document
+.getElementById("productModalTitle")
+.textContent =
+selectedProduct.title;
 
-  if(currentProduct.status==="free"){
 
-    payment.innerHTML=`
+const content =
+document
+.getElementById("productModalContent");
 
-      <div style="margin-top:20px;padding:15px;background:#edfff6;border-radius:12px">
 
-        <b>🆓 Free Download</b>
+if(selectedProduct.type==="Free"){
 
-        <button class="mainAction"
-          style="margin-top:12px;width:100%"
-          onclick="downloadProduct()">
+content.innerHTML=`
 
-          📥 Download ${currentProduct.type}
+<div style="text-align:center">
 
-        </button>
+${
+selectedProduct.preview
+?
+`<img
+src="${selectedProduct.preview}"
+style="max-width:100%;max-height:450px;border-radius:15px">`
+:
+`<div style="font-size:80px;padding:50px">🎨</div>`
+}
 
-      </div>
+<br><br>
 
-    `;
+<button
+class="mainButton"
+onclick="downloadFreeProduct()">
 
-  }else{
+⬇️ Download Free Poster
 
-    const qr=localStorage.getItem("posterbaba_upi");
+</button>
 
-    payment.innerHTML=`
+</div>
 
-      <div style="margin-top:20px;padding:15px;background:#faf7ff;border-radius:15px">
+`;
 
-        <h3>💳 Buy this design</h3>
+}
 
-        <p style="margin:8px 0">
-          Price:
-          <b style="font-size:22px">
-            ₹${currentProduct.price}
-          </b>
-        </p>
+else{
 
-        ${qr ?
-        `<img src="${qr}"
-          style="display:block;width:200px;max-width:100%;margin:15px auto;border-radius:12px">`
-        :
-        `<p style="color:#d33">
-          UPI QR not upl
+const upi =
+localStorage.getItem("pb_upi");
+
+
+content.innerHTML=`
+
+<div class="paymentBox">
+
+<h3>
+💳 Buy this Poster
+</h3>
+
+<p style="margin-top:8px">
+
+Price:
+
+<strong
+style="font-size:25px">
+
+₹${Number(selectedProduct.price || 0)}
+
+</strong>
+
+</p>
+
+
+${
+upi
+?
+
+`<img
+class="upiQR"
+src="${upi}"
+alt="UPI QR">`
+
+:
+
+`<div style="padding:30px;color:#c33">
+
+UPI payment option
+Admin द्वारा setup किया जाएगा।
+
+</div>`
+
+}
+
+
+<p
+style="color:#72778b;font-size:13px">
+
+UPI से payment करने के बाद
+download access दिया जाएगा।
+
+</p>
+
+
+<button
+class="mainButton"
+onclick="paymentDone()">
+
+✅ I Have Paid
+
+</button>
+
+
+</div>
+
+`;
+
+}
+
+
+document
+.getElementById("productModal")
+.classList.add("show");
+
+}
+
+
+/* ==================================
+   FREE DOWNLOAD
+================================== */
+
+function downloadFreeProduct(){
+
+if(!selectedProduct){
+
+return;
+
+}
+
+
+if(!selectedProduct.file){
+
+alert(
+"इस product की actual download file अभी Admin ने upload नहीं की है।"
+);
+
+return;
+
+}
+
+
+/*
+For a production marketplace,
+secure server-side download
+should be used.
+*/
+
+const link =
+document.createElement("a");
+
+
+link.href =
+selectedProduct.file;
+
+
+link.download =
+selectedProduct.title;
+
+
+link.click();
+
+}
+
+
+/* ==================================
+   PAYMENT
+================================== */
+
+function paymentDone(){
+
+alert(
+
+"Payment confirmation received.\n\n"+
+"Real automatic payment verification "+
+"के लिए payment gateway/backend "+
+"connect करना होगा।"
+
+);
+
+}
+
+
+/* ==================================
+   CLOSE MODALS
+================================== */
+
+function closeEdit(){
+
+document
+.getElementById("editModal")
+.classList.remove("show");
+
+}
+
+
+function closeProduct(){
+
+document
+.getElementById("productModal")
+.classList.remove("show");
+
+}
+
+
+/* ==================================
+   SCROLL SHOP
+================================== */
+
+function scrollToShop(){
+
+document
+.getElementById("shop")
+.scrollIntoView({
+
+behavior:"smooth"
+
+});
+
+}
+
+
+/* ==================================
+   ESCAPE HTML
+================================== */
+
+function escapeHTML(text){
+
+return String(text || "")
+
+.replace(
+/[&<>"']/g,
+
+function(match){
+
+return {
+
+"&":"&amp;",
+
+"<":"&lt;",
+
+">":"&gt;",
+
+'"':"&quot;",
+
+"'":"&#039;"
+
+}[match];
+
+}
+
+);
+
+}
+
+
+/* ==================================
+   INITIALIZE
+================================== */
+
+createCategories();
+
+renderProducts();
+
+
+</script>
+
+</body>
+  </html>
