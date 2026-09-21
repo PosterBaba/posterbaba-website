@@ -1,0 +1,2036 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,initial-scale=1.0">
+
+<title>PosterBaba Admin Panel</title>
+
+<style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
+:root{
+--primary:#6c2cff;
+--secondary:#ed238f;
+--dark:#11152d;
+--bg:#f4f5fa;
+--white:#fff;
+--text:#20243a;
+--muted:#74798c;
+--green:#09a968;
+--red:#e53950;
+--border:#e7e8f0;
+}
+
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:var(--bg);
+color:var(--text);
+}
+
+/* LOGIN */
+
+.loginScreen{
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+
+background:
+radial-gradient(circle at 10% 20%,#ffffff20,transparent 25%),
+linear-gradient(135deg,#4b21c8,#7625e8,#ed238f);
+}
+
+.loginBox{
+width:100%;
+max-width:430px;
+background:#fff;
+border-radius:28px;
+padding:35px;
+box-shadow:0 25px 70px #0004;
+text-align:center;
+}
+
+.adminLogo{
+width:70px;
+height:70px;
+border-radius:20px;
+margin:auto;
+display:grid;
+place-items:center;
+font-size:35px;
+font-weight:900;
+color:#fff;
+background:linear-gradient(135deg,#6c2cff,#ed238f);
+}
+
+.loginBox h1{
+margin-top:18px;
+font-size:28px;
+}
+
+.loginBox p{
+color:var(--muted);
+margin:8px 0 25px;
+}
+
+.loginInput{
+width:100%;
+padding:14px;
+border:1px solid #ddd;
+border-radius:12px;
+outline:none;
+font-size:16px;
+}
+
+.primaryBtn{
+border:0;
+border-radius:12px;
+padding:13px 18px;
+font-weight:900;
+cursor:pointer;
+color:white;
+background:linear-gradient(90deg,#6c2cff,#ed238f);
+}
+
+.loginButton{
+width:100%;
+margin-top:12px;
+}
+
+/* ADMIN */
+
+.adminPanel{
+display:none;
+}
+
+.topbar{
+height:70px;
+background:#11152d;
+color:white;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 4%;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.brand{
+font-size:21px;
+font-weight:900;
+}
+
+.topActions{
+display:flex;
+gap:8px;
+}
+
+.topBtn{
+border:0;
+padding:9px 13px;
+border-radius:9px;
+font-weight:800;
+cursor:pointer;
+}
+
+.customerBtn{
+background:#fff;
+color:#11152d;
+}
+
+.logoutBtn{
+background:#ff465c;
+color:white;
+}
+
+/* MAIN */
+
+.container{
+max-width:1300px;
+margin:auto;
+padding:25px 4%;
+}
+
+/* DASHBOARD */
+
+.dashboard{
+display:grid;
+grid-template-columns:
+repeat(4,1fr);
+gap:15px;
+margin-bottom:25px;
+}
+
+.stat{
+background:#fff;
+border-radius:18px;
+padding:20px;
+box-shadow:0 5px 20px #1111;
+}
+
+.statIcon{
+font-size:28px;
+}
+
+.statTitle{
+color:var(--muted);
+font-size:13px;
+margin-top:10px;
+}
+
+.statValue{
+font-size:27px;
+font-weight:900;
+margin-top:5px;
+}
+
+/* CARD */
+
+.card{
+background:white;
+border-radius:20px;
+padding:22px;
+margin-bottom:22px;
+box-shadow:0 5px 20px #1111;
+}
+
+.cardHeader{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:18px;
+}
+
+.cardHeader h2{
+font-size:21px;
+}
+
+/* FORM */
+
+.formGrid{
+display:grid;
+grid-template-columns:
+1fr 1fr;
+gap:15px;
+}
+
+.field{
+display:flex;
+flex-direction:column;
+gap:7px;
+}
+
+.field.full{
+grid-column:1/-1;
+}
+
+.field label{
+font-size:13px;
+font-weight:900;
+}
+
+.field input,
+.field select,
+.field textarea{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:11px;
+outline:none;
+font-size:14px;
+background:#fff;
+}
+
+.field textarea{
+min-height:90px;
+resize:vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+border-color:var(--primary);
+}
+
+/* FILE */
+
+.fileBox{
+border:2px dashed #d9d9e5;
+border-radius:13px;
+padding:15px;
+background:#fafaff;
+}
+
+.previewBox{
+margin-top:10px;
+display:none;
+text-align:center;
+}
+
+.previewBox img{
+max-width:200px;
+max-height:220px;
+border-radius:12px;
+}
+
+/* BUTTONS */
+
+.formButtons{
+display:flex;
+gap:10px;
+margin-top:18px;
+}
+
+.secondaryBtn{
+border:0;
+border-radius:11px;
+padding:12px 17px;
+font-weight:800;
+cursor:pointer;
+background:#eeeef5;
+color:#333;
+}
+
+.dangerBtn{
+border:0;
+border-radius:10px;
+padding:9px 12px;
+font-weight:800;
+cursor:pointer;
+background:#ffe7eb;
+color:#d62840;
+}
+
+.editBtn{
+border:0;
+border-radius:10px;
+padding:9px 12px;
+font-weight:800;
+cursor:pointer;
+background:#eeeaff;
+color:#6025e8;
+}
+
+/* UPI */
+
+.upiArea{
+display:grid;
+grid-template-columns:1fr 260px;
+gap:20px;
+align-items:center;
+}
+
+.upiPreview{
+background:#fafaff;
+border-radius:15px;
+padding:15px;
+text-align:center;
+}
+
+.upiPreview img{
+max-width:220px;
+width:100%;
+border-radius:10px;
+}
+
+/* PRODUCTS */
+
+.productList{
+display:grid;
+gap:12px;
+}
+
+.productItem{
+display:flex;
+align-items:center;
+gap:15px;
+padding:13px;
+border:1px solid var(--border);
+border-radius:15px;
+background:#fff;
+}
+
+.productImage{
+width:75px;
+height:90px;
+border-radius:10px;
+background:#eee;
+overflow:hidden;
+flex-shrink:0;
+display:grid;
+place-items:center;
+font-size:28px;
+}
+
+.productImage img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.productDetails{
+flex:1;
+min-width:0;
+}
+
+.productTitle{
+font-weight:900;
+font-size:16px;
+}
+
+.productMeta{
+font-size:12px;
+color:var(--muted);
+margin-top:5px;
+}
+
+.productPrice{
+font-weight:900;
+margin-top:6px;
+}
+
+.free{
+color:var(--green);
+}
+
+.paid{
+color:var(--secondary);
+}
+
+.productActions{
+display:flex;
+gap:7px;
+}
+
+/* NOTICE */
+
+.notice{
+padding:15px;
+border-radius:13px;
+background:#fff8e8;
+border:1px solid #ffe1a3;
+color:#765500;
+font-size:13px;
+line-height:1.5;
+margin-bottom:20px;
+}
+
+/* SEARCH */
+
+.adminSearch{
+width:100%;
+padding:13px;
+border:1px solid #ddd;
+border-radius:11px;
+margin-bottom:15px;
+outline:none;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+.dashboard{
+grid-template-columns:1fr 1fr;
+}
+
+.formGrid{
+grid-template-columns:1fr;
+}
+
+.field.full{
+grid-column:auto;
+}
+
+.upiArea{
+grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:600px){
+
+.topbar{
+padding:0 3%;
+}
+
+.brand{
+font-size:17px;
+}
+
+.customerBtn{
+display:none;
+}
+
+.container{
+padding:18px 3%;
+}
+
+.card{
+padding:17px;
+}
+
+.dashboard{
+gap:10px;
+}
+
+.stat{
+padding:14px;
+}
+
+.statValue{
+font-size:23px;
+}
+
+.productItem{
+align-items:flex-start;
+}
+
+.productActions{
+flex-direction:column;
+}
+
+.productImage{
+width:65px;
+height:80px;
+}
+
+.formButtons{
+flex-direction:column;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     LOGIN
+========================= -->
+
+<section
+class="loginScreen"
+id="loginScreen">
+
+<div class="loginBox">
+
+<div class="adminLogo">
+P
+</div>
+
+<h1>
+PosterBaba Admin
+</h1>
+
+<p>
+Manage your posters & products
+</p>
+
+<input
+class="loginInput"
+id="adminPin"
+type="password"
+placeholder="Enter Admin PIN">
+
+<button
+class="primaryBtn loginButton"
+onclick="adminLogin()">
+
+🔐 Login to Admin Panel
+
+</button>
+
+<p
+style="font-size:12px;margin-top:20px">
+
+Admin access only
+
+</p>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     ADMIN PANEL
+========================= -->
+
+<div
+class="adminPanel"
+id="adminPanel">
+
+
+<header class="topbar">
+
+<div class="brand">
+🛠️ PosterBaba Admin
+</div>
+
+<div class="topActions">
+
+<button
+class="topBtn customerBtn"
+onclick="openCustomerHome()">
+
+🛍️ Customer Home
+
+</button>
+
+<button
+class="topBtn logoutBtn"
+onclick="logout()">
+
+Logout
+
+</button>
+
+</div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- DASHBOARD -->
+
+<section class="dashboard">
+
+
+<div class="stat">
+
+<div class="statIcon">
+📦
+</div>
+
+<div class="statTitle">
+Total Products
+</div>
+
+<div
+class="statValue"
+id="totalProducts">
+
+0
+
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="statIcon">
+🆓
+</div>
+
+<div class="statTitle">
+Free Designs
+</div>
+
+<div
+class="statValue"
+id="freeProducts">
+
+0
+
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="statIcon">
+💰
+</div>
+
+<div class="statTitle">
+Paid Designs
+</div>
+
+<div
+class="statValue"
+id="paidProducts">
+
+0
+
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="statIcon">
+💳
+</div>
+
+<div class="statTitle">
+UPI Status
+</div>
+
+<div
+class="statValue"
+id="upiStatus">
+
+OFF
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NOTICE -->
+
+<div class="notice">
+
+<b>⚠️ Important:</b>
+
+अभी यह GitHub Pages + browser storage वाला version है।
+Products और UPI QR इस browser में save होंगे।
+सभी customers के phones पर एक साथ data दिखाने के लिए बाद में
+database/backend जोड़ना होगा।
+
+</div>
+
+
+<!-- ADD PRODUCT -->
+
+<section class="card">
+
+<div class="cardHeader">
+
+<h2>
+➕ Add New Poster
+</h2>
+
+</div>
+
+
+<div class="formGrid">
+
+
+<div class="field">
+
+<label>
+Poster / Product Name *
+</label>
+
+<input
+id="productTitle"
+placeholder="Example: Navratri Special Poster">
+
+</div>
+
+
+<div class="field">
+
+<label>
+Category
+</label>
+
+<select id="productCategory">
+
+<option>Festival</option>
+
+<option>Business</option>
+
+<option>Birthday</option>
+
+<option>Wedding</option>
+
+<option>Religious</option>
+
+<option>Social</option>
+
+<option>Other</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>
+File Type
+</label>
+
+<select id="fileType">
+
+<option>PLP</option>
+
+<option>PSD</option>
+
+<option>PNG</option>
+
+<option>JPG</option>
+
+<option>ZIP</option>
+
+<option>Other</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Product Type
+</label>
+
+<select
+id="productType"
+onchange="priceVisibility()">
+
+<option value="Free">
+Free
+</option>
+
+<option value="Paid">
+Paid
+</option>
+
+</select>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Price ₹
+</label>
+
+<input
+id="productPrice"
+type="number"
+min="0"
+value="0"
+placeholder="99">
+
+</div>
+
+
+<div class="field">
+
+<label>
+Creator Name
+</label>
+
+<input
+id="creatorName"
+value="PosterBaba">
+
+</div>
+
+
+<div class="field full">
+
+<label>
+Poster Preview Image *
+</label>
+
+<div class="fileBox">
+
+<input
+id="previewFile"
+type="file"
+accept="image/png,image/jpeg,image/webp"
+onchange="previewPoster(event)">
+
+<div
+class="previewBox"
+id="posterPreviewBox">
+
+<img
+id="posterPreviewImage">
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="field full">
+
+<label>
+Download File *
+</label>
+
+<div class="fileBox">
+
+<input
+id="downloadFile"
+type="file"
+accept=".plp,.psd,.png,.jpg,.jpeg,.zip">
+
+<p
+style="font-size:12px;color:#777;margin-top:8px">
+
+PLP / PSD / PNG / JPG / ZIP files upload करें।
+
+</p>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="formButtons">
+
+<button
+class="primaryBtn"
+onclick="saveProduct()">
+
+💾 Save Product
+
+</button>
+
+
+<button
+class="secondaryBtn"
+onclick="clearProductForm()">
+
+↻ Clear
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- UPI -->
+
+<section class="card">
+
+<div class="cardHeader">
+
+<h2>
+💳 UPI Payment Scanner
+</h2>
+
+</div>
+
+
+<div class="upiArea">
+
+
+<div>
+
+<p
+style="line-height:1.6;color:#666">
+
+अपना UPI QR / Scanner upload करें।
+Paid posters खरीदने वाले customers को यही QR दिखाया जाएगा।
+
+</p>
+
+
+<br>
+
+
+<div class="fileBox">
+
+<input
+id="upiFile"
+type="file"
+accept="image/*"
+onchange="saveUPI(event)">
+
+</div>
+
+
+<br>
+
+
+<button
+class="dangerBtn"
+onclick="removeUPI()">
+
+🗑️ Remove UPI QR
+
+</button>
+
+</div>
+
+
+<div
+class="upiPreview"
+id="upiPreview">
+
+<div style="font-size:45px">
+💳
+</div>
+
+<p
+style="color:#777;margin-top:8px">
+
+No UPI QR
+
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- PRODUCTS -->
+
+<section class="card">
+
+<div class="cardHeader">
+
+<h2>
+📦 Your Products
+</h2>
+
+</div>
+
+
+<input
+class="adminSearch"
+id="adminSearch"
+placeholder="🔎 Search your products..."
+oninput="renderProducts()">
+
+
+<div
+class="productList"
+id="productList">
+
+</div>
+
+</section>
+
+
+</main>
+
+</div>
+
+
+<script>
+
+
+/* =========================
+   ADMIN SETTINGS
+========================= */
+
+
+/*
+   आप अपना PIN यहां बदल सकते हैं।
+
+   अभी Demo PIN:
+   2580
+*/
+
+const ADMIN_PIN = "2580";
+
+
+let products =
+JSON.parse(
+localStorage.getItem("pb_products")
+) || [];
+
+
+let editingProductId = null;
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function adminLogin(){
+
+const pin =
+document
+.getElementById("adminPin")
+.value;
+
+
+if(pin === ADMIN_PIN){
+
+document
+.getElementById("loginScreen")
+.style.display="none";
+
+
+document
+.getElementById("adminPanel")
+.style.display="block";
+
+
+renderProducts();
+
+loadUPI();
+
+}
+
+else{
+
+alert(
+"❌ Wrong Admin PIN"
+);
+
+}
+
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+function logout(){
+
+document
+.getElementById("adminPanel")
+.style.display="none";
+
+
+document
+.getElementById("loginScreen")
+.style.display="flex";
+
+
+document
+.getElementById("adminPin")
+.value="";
+
+}
+
+
+/* =========================
+   CUSTOMER HOME
+========================= */
+
+function openCustomerHome(){
+
+window.location.href =
+"index.html";
+
+}
+
+
+/* =========================
+   PRICE
+========================= */
+
+function priceVisibility(){
+
+const type =
+document
+.getElementById("productType")
+.value;
+
+
+const price =
+document
+.getElementById("productPrice");
+
+
+if(type==="Free"){
+
+price.value=0;
+
+}
+
+}
+
+
+/* =========================
+   PREVIEW IMAGE
+========================= */
+
+function previewPoster(event){
+
+const file =
+event.target.files[0];
+
+
+if(!file){
+
+return;
+
+}
+
+
+const reader =
+new FileReader();
+
+
+reader.onload =
+function(e){
+
+const box =
+document
+.getElementById("posterPreviewBox");
+
+
+const img =
+document
+.getElementById("posterPreviewImage");
+
+
+img.src =
+e.target.result;
+
+
+box.style.display="block";
+
+};
+
+
+reader.readAsDataURL(file);
+
+}
+
+
+/* =========================
+   SAVE PRODUCT
+========================= */
+
+function saveProduct(){
+
+const title =
+document
+.getElementById("productTitle")
+.value
+.trim();
+
+
+if(!title){
+
+alert(
+"Poster / Product Name डालें।"
+);
+
+return;
+
+}
+
+
+const type =
+document
+.getElementById("productType")
+.value;
+
+
+const price =
+Number(
+document
+.getElementById("productPrice")
+.value || 0
+);
+
+
+const preview =
+document
+.getElementById("previewFile")
+.files[0];
+
+
+const download =
+document
+.getElementById("downloadFile")
+.files[0];
+
+
+if(!editingProductId){
+
+if(!preview){
+
+alert(
+"Poster Preview Image upload करें।"
+);
+
+return;
+
+}
+
+
+if(!download){
+
+alert(
+"Download File upload करें।"
+);
+
+return;
+
+}
+
+}
+
+
+const product = {
+
+id:
+editingProductId ||
+Date.now().toString(),
+
+title:title,
+
+category:
+document
+.getElementById("productCategory")
+.value,
+
+fileType:
+document
+.getElementById("fileType")
+.value,
+
+type:type,
+
+price:
+type==="Free"
+?
+0
+:
+price,
+
+creator:
+document
+.getElementById("creatorName")
+.value
+.trim()
+||
+"PosterBaba",
+
+preview:"",
+file:""
+
+};
+
+
+/*
+Read preview image
+*/
+
+function readFile(file){
+
+return new Promise(
+
+resolve=>{
+
+if(!file){
+
+resolve("");
+
+return;
+
+}
+
+const reader =
+new FileReader();
+
+reader.onload =
+()=>resolve(reader.result);
+
+reader.readAsDataURL(file);
+
+}
+
+);
+
+}
+
+
+/*
+Read both files
+*/
+
+Promise.all([
+
+readFile(preview),
+
+readFile(download)
+
+])
+
+.then(function(files){
+
+const previewData =
+files[0];
+
+const downloadData =
+files[1];
+
+
+/*
+When editing and no new
+file is selected,
+keep old files.
+*/
+
+if(editingProductId){
+
+const old =
+products.find(
+p=>p.id===editingProductId
+);
+
+
+product.preview =
+previewData ||
+old.preview ||
+"";
+
+
+product.file =
+downloadData ||
+old.file ||
+"";
+
+}
+
+else{
+
+product.preview =
+previewData;
+
+product.file =
+downloadData;
+
+}
+
+
+/*
+Save
+*/
+
+if(editingProductId){
+
+products =
+products.map(
+p=>
+p.id===editingProductId
+?
+product
+:
+p
+);
+
+alert(
+"✅ Product Updated Successfully"
+);
+
+}
+
+else{
+
+products.push(product);
+
+alert(
+"✅ Product Added Successfully"
+);
+
+}
+
+
+localStorage.setItem(
+"pb_products",
+JSON.stringify(products)
+);
+
+
+clearProductForm();
+
+renderProducts();
+
+});
+
+}
+
+
+/* =========================
+   RENDER PRODUCTS
+========================= */
+
+function renderProducts(){
+
+const list =
+document
+.getElementById("productList");
+
+
+const search =
+document
+.getElementById("adminSearch")
+.value
+.toLowerCase()
+.trim();
+
+
+const filtered =
+products.filter(p=>
+
+p.title
+.toLowerCase()
+.includes(search)
+
+);
+
+
+if(filtered.length===0){
+
+list.innerHTML=`
+
+<div
+style="
+text-align:center;
+padding:40px;
+color:#777">
+
+📦 No Products Found
+
+</div>
+
+`;
+
+}
+
+else{
+
+list.innerHTML =
+filtered.map(p=>`
+
+<div class="productItem">
+
+
+<div class="productImage">
+
+${
+p.preview
+?
+`<img
+src="${p.preview}">`
+:
+`🎨`
+}
+
+</div>
+
+
+<div class="productDetails">
+
+<div class="productTitle">
+
+${escapeHTML(p.title)}
+
+</div>
+
+
+<div class="productMeta">
+
+${escapeHTML(p.category)}
+
+•
+
+${escapeHTML(p.fileType || "File")}
+
+•
+
+${escapeHTML(p.creator)}
+
+</div>
+
+
+<div
+class="productPrice
+${p.type==="Free"?"free":"paid"}">
+
+${
+p.type==="Free"
+?
+"FREE"
+:
+"₹"+Number(p.price || 0)
+}
+
+</div>
+
+</div>
+
+
+<div class="productActions">
+
+
+<button
+class="editBtn"
+onclick="editProduct('${p.id}')">
+
+✏️ Edit
+
+</button>
+
+
+<button
+class="dangerBtn"
+onclick="deleteProduct('${p.id}')">
+
+🗑️ Delete
+
+</button>
+
+
+</div>
+
+
+</div>
+
+`).join("");
+
+}
+
+
+/* DASHBOARD */
+
+updateDashboard();
+
+}
+
+
+/* =========================
+   DASHBOARD
+========================= */
+
+function updateDashboard(){
+
+const total =
+products.length;
+
+
+const free =
+products.filter(
+p=>p.type==="Free"
+).length;
+
+
+const paid =
+products.filter(
+p=>p.type==="Paid"
+).length;
+
+
+document
+.getElementById("totalProducts")
+.textContent=total;
+
+
+document
+.getElementById("freeProducts")
+.textContent=free;
+
+
+document
+.getElementById("paidProducts")
+.textContent=paid;
+
+}
+
+
+/* =========================
+   EDIT
+========================= */
+
+function editProduct(id){
+
+const p =
+products.find(
+x=>x.id===id
+);
+
+
+if(!p){
+
+return;
+
+}
+
+
+editingProductId=id;
+
+
+document
+.getElementById("productTitle")
+.value=p.title;
+
+
+document
+.getElementById("productCategory")
+.value=p.category;
+
+
+document
+.getElementById("fileType")
+.value=p.fileType || "PLP";
+
+
+document
+.getElementById("productType")
+.value=p.type;
+
+
+document
+.getElementById("productPrice")
+.value=p.price;
+
+
+document
+.getElementById("creatorName")
+.value=p.creator;
+
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+
+alert(
+"✏️ Edit mode चालू है। Changes करके Save Product दबाएँ।"
+);
+
+}
+
+
+/* =========================
+   DELETE
+========================= */
+
+function deleteProduct(id){
+
+const product =
+products.find(
+p=>p.id===id
+);
+
+
+if(!product){
+
+return;
+
+}
+
+
+const confirmDelete =
+confirm(
+`"${product.title}" को delete करना है?`
+);
+
+
+if(!confirmDelete){
+
+return;
+
+}
+
+
+products =
+products.filter(
+p=>p.id!==id
+);
+
+
+localStorage.setItem(
+"pb_products",
+JSON.stringify(products)
+);
+
+
+renderProducts();
+
+
+}
+
+
+/* =========================
+   CLEAR FORM
+========================= */
+
+function clearProductForm(){
+
+editingProductId=null;
+
+
+document
+.getElementById("productTitle")
+.value="";
+
+
+document
+.getElementById("productCategory")
+.value="Festival";
+
+
+document
+.getElementById("fileType")
+.value="PLP";
+
+
+document
+.getElementById("productType")
+.value="Free";
+
+
+document
+.getElementById("productPrice")
+.value=0;
+
+
+document
+.getElementById("creatorName")
+.value="PosterBaba";
+
+
+document
+.getElementById("previewFile")
+.value="";
+
+
+document
+.getElementById("downloadFile")
+.value="";
+
+
+document
+.getElementById("posterPreviewBox")
+.style.display="none";
+
+}
+
+
+/* =========================
+   UPI SAVE
+========================= */
+
+function saveUPI(event){
+
+const file =
+event.target.files[0];
+
+
+if(!file){
+
+return;
+
+}
+
+
+const reader =
+new FileReader();
+
+
+reader.onload =
+function(e){
+
+localStorage.setItem(
+"pb_upi",
+e.target.result
+);
+
+
+loadUPI();
+
+
+alert(
+"✅ UPI QR Saved Successfully"
+);
+
+};
+
+
+reader.readAsDataURL(file);
+
+}
+
+
+/* =========================
+   LOAD UPI
+========================= */
+
+function loadUPI(){
+
+const upi =
+localStorage.getItem("pb_upi");
+
+
+const box =
+document
+.getElementById("upiPreview");
+
+
+const status =
+document
+.getElementById("upiStatus");
+
+
+if(upi){
+
+box.innerHTML=`
+
+<img
+src="${upi}"
+alt="UPI QR">
+
+<p
+style="
+color:#09a968;
+font-weight:900;
+margin-top:8px">
+
+✅ UPI QR Active
+
+</p>
+
+`;
+
+status.textContent="ON";
+
+status.style.color="#09a968";
+
+}
+
+else{
+
+box.innerHTML=`
+
+<div style="font-size:45px">
+💳
+</div>
+
+<p
+style="
+color:#777;
+margin-top:8px">
+
+No UPI QR
+
+</p>
+
+`;
+
+status.textContent="OFF";
+
+status.style.color="#e53950";
+
+}
+
+}
+
+
+/* =========================
+   REMOVE UPI
+========================= */
+
+function removeUPI(){
+
+if(
+!confirm(
+"UPI QR remove करना है?"
+)
+){
+
+return;
+
+}
+
+
+localStorage.removeItem(
+"pb_upi"
+);
+
+
+loadUPI();
+
+}
+
+
+/* =========================
+   ESCAPE HTML
+========================= */
+
+function escapeHTML(text){
+
+return String(text || "")
+.replace(
+/[&<>"']/g,
+
+function(match){
+
+return {
+
+"&":"&amp;",
+"<":"&lt;",
+">":"&gt;",
+'"':"&quot;",
+"'":"&#039;"
+
+}[match];
+
+}
+
+);
+
+}
+
+
+/* =========================
+   ENTER LOGIN
+========================= */
+
+document
+.getElementById("adminPin")
+.addEventListener(
+"keypress",
+function(event){
+
+if(event.key==="Enter"){
+
+adminLogin();
+
+}
+
+});
+
+
+</script>
+
+</body>
+
+</h
